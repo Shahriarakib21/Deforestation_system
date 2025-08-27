@@ -1,4 +1,5 @@
-# ML-Based Real-Time Deforestation Tracking System [Shahriar Akib ( 20222222) , Shafin Ahmed Shoscho ( 2221699) , Morium Akter Shorna ( 2222420) , MD Akash Hossen ( 2231188) , Maruf Al Hasan ( 2130208),Al Waresin ( 2211180)  
+# ML-Based Real-Time Deforestation Tracking System  ( CSE 307 - FINAL PROJECT) 
+[Shahriar Akib ( 20222222) , Shafin Ahmed Shoscho ( 2221699) , Morium Akter Shorna ( 2222420) , MD Akash Hossen ( 2231188) , Maruf Al Hasan ( 2130208),Al Waresin ( 2211180)  
 
 A comprehensive web application for monitoring and tracking deforestation activities in real-time using advanced machine learning algorithms and satellite imagery analysis.
 
