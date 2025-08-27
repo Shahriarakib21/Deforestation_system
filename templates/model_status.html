@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Status - EcoTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <button class="mobile-nav-toggle" id="mobileNavToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-brain"></i> Model Status</h1>
+            <p>Check the current state of your deforestation detection model</p>
+        </header>
+
+        <nav class="nav" id="mainNav">
+            <a href="/" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="/satellite" class="nav-link"><i class="fas fa-satellite"></i> Satellite Processing</a>
+            <a href="/upload-manager" class="nav-link"><i class="fas fa-cloud-upload-alt"></i> Upload Manager</a>
+            <a href="/model-status" class="nav-link active"><i class="fas fa-brain"></i> Model Status</a>
+        </nav>
+
+        <div class="card">
+            <h2><i class="fas fa-info-circle"></i> Current Status</h2>
+            <div class="status-overview">
+                <div class="status-item">
+                    <span class="status-label">Model State:</span>
+                    <span class="status-value" id="modelState">Loading...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Last Update:</span>
+                    <span class="status-value" id="lastUpdate">Loading...</span>
+                </div>
+            </div>
+
+            <div id="modelDetails">
+                <div class="loading">Loading model details...</div>
+            </div>
+
+            <div class="quick-actions">
+                <h3>Actions</h3>
+                <div class="action-buttons">
+                    <button class="btn btn-success" onclick="startTraining()"><i class="fas fa-play"></i> Train with New Data</button>
+                    <a href="/upload-manager" class="btn btn-primary"><i class="fas fa-upload"></i> Go to Uploads</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('mobileNavToggle');
+            const nav = document.getElementById('mainNav');
+            toggle.addEventListener('click', function() {
+                nav.classList.toggle('collapsed');
+                const icon = this.querySelector('i');
+                icon.className = nav.classList.contains('collapsed') ? 'fas fa-bars' : 'fas fa-times';
+            });
+
+            loadStatus();
+        });
+
+        async function loadStatus() {
+            try {
+                const response = await fetch('/api/system-status');
+                const status = await response.json();
+
+                document.getElementById('lastUpdate').textContent = new Date(status.last_update).toLocaleString();
+                const modelState = document.getElementById('modelState');
+                modelState.innerHTML = status.model_status === 'training' 
+                    ? '<span class="status-indicator warning"></span>Training'
+                    : '<span class="status-indicator active"></span>Ready';
+
+                // Show model details if available
+                const details = document.getElementById('modelDetails');
+                details.innerHTML = `
+                    <div class="stats-details">
+                        <div class="detail-item">
+                            <strong>Upload Folder</strong>
+                            <span>${status.upload_folder_status}</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Google Drive</strong>
+                            <span>${status.google_drive_status}</span>
+                        </div>
+                    </div>
+                `;
+            } catch (e) {
+                document.getElementById('modelDetails').innerHTML = '<div class="error">Failed to load model status</div>';
+            }
+        }
+
+        async function startTraining() {
+            try {
+                const res = await fetch('/api/model/train-with-new-data', { method: 'POST' });
+                const data = await res.json();
+                if (data.success) {
+                    alert('Training started!');
+                    loadStatus();
+                } else {
+                    alert('Could not start training: ' + (data.error || 'Unknown error'));
+                }
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        }
+    </script>
+</body>
+</html>

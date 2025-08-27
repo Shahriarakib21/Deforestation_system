@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML-Based Real-Time Deforestation Tracking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle" id="mobileNavToggle">
+        <i class="fas fa-bars"></i>
+                </button>
+
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-tree"></i> EcoTrack Deforestation Monitor</h1>
+            <p>Real-time monitoring and analysis of deforestation patterns using AI</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav" id="mainNav">
+            <a href="/" class="nav-link active"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="/satellite" class="nav-link"><i class="fas fa-satellite"></i> Satellite Processing</a>
+            <a href="/upload-manager" class="nav-link"><i class="fas fa-cloud-upload-alt"></i> Upload Manager</a>
+            <a href="/model-status" class="nav-link"><i class="fas fa-brain"></i> Model Status</a>
+        </nav>
+
+        <!-- Main Dashboard Content -->
+        <div class="card">
+            <h2><i class="fas fa-chart-line"></i> Real-Time Monitoring Dashboard</h2>
+            
+            <!-- Status Overview -->
+            <div class="status-overview">
+                        <div class="status-item">
+                    <span class="status-label">System Status:</span>
+                    <span class="status-value">
+                        <span class="status-indicator active"></span>
+                        Active Monitoring
+                    </span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Last Update:</span>
+                    <span class="status-value" id="lastUpdate">Loading...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Model Status:</span>
+                    <span class="status-value" id="modelStatus">Checking...</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-buttons">
+                    <a href="/upload-manager" class="btn btn-primary">
+                        <i class="fas fa-upload"></i> Upload Images
+                    </a>
+                    <a href="/satellite" class="btn btn-success">
+                        <i class="fas fa-satellite"></i> Process Satellite Data
+                    </a>
+                    <a href="/model-status" class="btn btn-info">
+                        <i class="fas fa-brain"></i> Check Model Status
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Deforestation Data -->
+        <div class="card">
+            <h2><i class="fas fa-chart-bar"></i> Deforestation Statistics</h2>
+            <div id="deforestationData">
+                <div class="loading">Loading deforestation data...</div>
+                            </div>
+                        </div>
+                        
+        <!-- Recent Activity -->
+        <div class="card">
+            <h2><i class="fas fa-history"></i> Recent Activity</h2>
+            <div id="recentActivity">
+                <div class="loading">Loading recent activity...</div>
+            </div>
+        </div>
+        </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.getElementById('mobileNavToggle');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileNavToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('collapsed');
+                
+                // Change icon
+                const icon = this.querySelector('i');
+                if (mainNav.classList.contains('collapsed')) {
+                    icon.className = 'fas fa-bars';
+                } else {
+                    icon.className = 'fas fa-times';
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mainNav.contains(event.target) && !mobileNavToggle.contains(event.target)) {
+                    mainNav.classList.add('collapsed');
+                    const icon = mobileNavToggle.querySelector('i');
+                    icon.className = 'fas fa-bars';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

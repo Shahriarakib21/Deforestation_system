@@ -1,0 +1,82 @@
+[
+  {
+    "filename": "20250827_022640_demo_deforested_area.jpg",
+    "original_name": "demo_deforested_area.jpg",
+    "category": "deforestation_dataset",
+    "size": 30920,
+    "timestamp": "2025-08-27T02:26:40.770030",
+    "path": "uploads\\training_data\\20250827_022640_demo_deforested_area.jpg"
+  },
+  {
+    "filename": "20250827_022642_demo_healthy_forest.jpg",
+    "original_name": "demo_healthy_forest.jpg",
+    "category": "deforestation_dataset",
+    "size": 32455,
+    "timestamp": "2025-08-27T02:26:42.836161",
+    "path": "uploads\\training_data\\20250827_022642_demo_healthy_forest.jpg"
+  },
+  {
+    "filename": "20250827_022644_demo_mixed_landscape.jpg",
+    "original_name": "demo_mixed_landscape.jpg",
+    "category": "deforestation_dataset",
+    "size": 55948,
+    "timestamp": "2025-08-27T02:26:44.930446",
+    "path": "uploads\\training_data\\20250827_022644_demo_mixed_landscape.jpg"
+  },
+  {
+    "filename": "20250827_023729_demo_deforested_area.jpg",
+    "original_name": "demo_deforested_area.jpg",
+    "category": "deforestation_dataset",
+    "size": 30945,
+    "timestamp": "2025-08-27T02:37:29.861127",
+    "path": "uploads\\training_data\\20250827_023729_demo_deforested_area.jpg"
+  },
+  {
+    "filename": "20250827_023731_demo_healthy_forest.jpg",
+    "original_name": "demo_healthy_forest.jpg",
+    "category": "deforestation_dataset",
+    "size": 32485,
+    "timestamp": "2025-08-27T02:37:31.947641",
+    "path": "uploads\\training_data\\20250827_023731_demo_healthy_forest.jpg"
+  },
+  {
+    "filename": "20250827_023734_demo_mixed_landscape.jpg",
+    "original_name": "demo_mixed_landscape.jpg",
+    "category": "deforestation_dataset",
+    "size": 55848,
+    "timestamp": "2025-08-27T02:37:34.027807",
+    "path": "uploads\\training_data\\20250827_023734_demo_mixed_landscape.jpg"
+  },
+  {
+    "filename": "20250827_024959_demo_deforested_area.jpg",
+    "original_name": "demo_deforested_area.jpg",
+    "category": "deforestation_dataset",
+    "size": 30990,
+    "timestamp": "2025-08-27T02:49:59.864260",
+    "path": "uploads\\training_data\\20250827_024959_demo_deforested_area.jpg"
+  },
+  {
+    "filename": "20250827_025002_demo_healthy_forest.jpg",
+    "original_name": "demo_healthy_forest.jpg",
+    "category": "deforestation_dataset",
+    "size": 32365,
+    "timestamp": "2025-08-27T02:50:02.012943",
+    "path": "uploads\\training_data\\20250827_025002_demo_healthy_forest.jpg"
+  },
+  {
+    "filename": "20250827_025004_demo_mixed_landscape.jpg",
+    "original_name": "demo_mixed_landscape.jpg",
+    "category": "deforestation_dataset",
+    "size": 55802,
+    "timestamp": "2025-08-27T02:50:04.175599",
+    "path": "uploads\\training_data\\20250827_025004_demo_mixed_landscape.jpg"
+  },
+  {
+    "filename": "20250827_133028_train_0.jpg",
+    "original_name": "train_0.jpg",
+    "category": "deforestation_dataset",
+    "size": 12441,
+    "timestamp": "2025-08-27T13:30:28.273615",
+    "path": "uploads\\training_data\\20250827_133028_train_0.jpg"
+  }
+]
